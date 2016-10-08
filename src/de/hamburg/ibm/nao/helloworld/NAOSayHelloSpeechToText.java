@@ -20,7 +20,7 @@ public class NAOSayHelloSpeechToText {
 	public static void main(String[] args) {
 
 		try {
-			String robotUrl = "tcp://127.0.0.1:50097";
+			String robotUrl = "tcp://127.0.0.1:63446";
 			
 			// Create a new application
 			Application application = new Application(args, robotUrl);
@@ -28,12 +28,12 @@ public class NAOSayHelloSpeechToText {
 			application.start();
 
 			SpeechToText service = new SpeechToText();
-			service.setUsernameAndPassword("3cd51759-484d-4872-a715-c1070dd0fXXX", "IcIdnJhvXXX");
+			service.setUsernameAndPassword("3cd51759-484d-4872-a715-c1070dd0f8d9", "IcIdnJhvlVWM");
 			service.setEndPoint("https://stream.watsonplatform.net/speech-to-text/api");
 
 			// Erzeugt durch Start->search programs and files-> type in
 			// 'soundrecorder /file test.wav'
-			File audio = new File("C:/Users/XXXX/Desktop/test.wav");
+			File audio = new File("C:/Users/IBM_ADMIN/Desktop/NAO/NAOPICS/test.wav");
 
 			SpeechResults transcript = service.recognize(audio).execute();
 
@@ -41,6 +41,7 @@ public class NAOSayHelloSpeechToText {
 			String myText = transcript2.getAlternatives().get(0).getTranscript();
 
 			ALTextToSpeech ttsAnswer = new ALTextToSpeech(application.session());
+			System.err.println("Es wurde gesagt: "+ttsAnswer);
 			ttsAnswer.say(myText);
 
 			// Spracherkennung, hat bei mir Lokal nicht funktioniert
