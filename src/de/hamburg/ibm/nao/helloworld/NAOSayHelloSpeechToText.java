@@ -28,7 +28,7 @@ public class NAOSayHelloSpeechToText {
 			application.start();
 
 			SpeechToText service = new SpeechToText();
-			service.setUsernameAndPassword("3cd51759-484d-4872-a715-c1070dd0f8d9", "IcIdnJhvlVWM");
+			service.setUsernameAndPassword("", "");
 			service.setEndPoint("https://stream.watsonplatform.net/speech-to-text/api");
 
 			// Erzeugt durch Start->search programs and files-> type in
